@@ -22,7 +22,7 @@ methods =
 
   open_custom: ->
     @data "recurring-select-active", true
-    new RecurringSelectDialog(@)
+    new RecurringSelectDialog(@, $('#event_starts_at').val())
     @blur()
 
   save: (new_rule) ->
