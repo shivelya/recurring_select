@@ -24,7 +24,7 @@ select {
 
         .rs_calendar_day, .rs_calendar_week {
           width:155px;
-          a {display:inline-block; text-align:center; width:15px; padding:5px 3px; font-size:12px; border-style:solid; border-color:#ccc; border-width:1px 1px 1px 1px; margin:-1px 0 0 -1px; line-height:10px; background-color:#fff; font-weight:bold;
+          a {display:inline-block; text-align:center; width:15px; padding:5px 3px; font-size:12px; border-style:solid; border-color:#ccc; border-width:1px 1px 1px 1px; margin:-1px 0 0 -1px; line-height:10px; background-color:#fff; font-weight:bold; box-sizing: content-box; -webkit-box-sizing: content-box; -moz-box-sizing: content-box;
             &.selected {background-color:#89a; color:#fff; text-shadow:0 1px 1px #333;}
             &:hover { cursor:pointer; background-color:#dde;}
           }
@@ -35,6 +35,9 @@ select {
           span {
             display: inline-block;
             width: 35px;
+            border-sizing: content-box;
+            -webkit-border-sizing: content-box;
+            -moz-box-bixing: content-box;
           }
         }
 

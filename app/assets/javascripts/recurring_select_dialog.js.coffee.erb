@@ -394,7 +394,7 @@ window.RecurringSelectDialog =
         <div class='modal-body' style='max-height: 500px'>
           <p>
             <label for='rs_frequency'>#{$.fn.recurring_select.texts["frequency"]}:</label>
-            <select id='rs_frequency' class='rs_frequency' name='rs_frequency'>
+            <select id='rs_frequency' class='rs_frequency form-control' name='rs_frequency'>
               <option value='Daily'>#{$.fn.recurring_select.texts["daily"]}</option>
               <option value='Weekly'>#{$.fn.recurring_select.texts["weekly"]}</option>
               <option value='Monthly'>#{$.fn.recurring_select.texts["monthly"]}</option>
@@ -432,7 +432,7 @@ window.RecurringSelectDialog =
               #{$.fn.recurring_select.texts["months"]}:
             </p>
             <p class='monthly_rule_type'>
-              <label class='radio inline'>
+              <label class='radio-inline'>
                 <input type='radio' class='monthly_rule_type_day' name='monthly_rule_type' value='true' />
                 #{$.fn.recurring_select.texts["day_of_month"]}
               </label>
@@ -465,10 +465,10 @@ window.RecurringSelectDialog =
             </label>
               <input type='radio' id='ends_until' name='end_interval_type' aria-label='Ends on a specified date' title='Ends on a specified date'>
               On
-              <div class='input-append datetime-picker'>
+              <div class='input-group datetime-picker'>
                 <input data-format='MM/dd/yyyy' id='ends_until_input' type='text' style='width: 100px;' size='10' disabled title='Specified date' autocomplete='off'>
-                <span class='add-on'>
-                  <i class='icon-calendar' data-date-icon='icon-calendar' data-time-icon='icon-time'/>
+                <span class='input-group-addon'>
+                  <i class='fa fa-calendar' data-date-icon='fa-calendar' data-time-icon='fa-time'/>
                 </span>
               </div>
           </div>
