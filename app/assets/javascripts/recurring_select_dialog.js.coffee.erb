@@ -80,13 +80,13 @@ window.RecurringSelectDialog =
         ends_never.prop('checked', !@current_rule.hash.until and !@current_rule.hash.count)
 
         ends_count = section.find('#ends_count')
-        ends_count.prop('checked', @current_rule.hash.count != null)
+        ends_count.prop('checked', @current_rule.hash.count?)
         if ends_count.prop('checked')
           ends_count_input.removeAttr('disabled')
           ends_count_input.val(@current_rule.hash.count)
 
         ends_until = section.find('#ends_until')
-        ends_until.prop('checked', @current_rule.hash.until != null)
+        ends_until.prop('checked', @current_rule.hash.until?)
         if ends_until.prop('checked')
           ends_until_input.removeAttr('disabled')
           @initDateTimePicker(Date.parse(@current_rule.hash.until))
@@ -385,6 +385,8 @@ window.RecurringSelectDialog =
     template: () ->
       str = "
       <div id='myModal' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' style='width: 300px; margin-left: -150px;'>
+        <div class='modal-dialog'>
+        <div class='modal-content'>
         <div class='modal-header'>
           <button type='button' class='close' data-dismiss='modal' aria-hidden='true' title='#{$.fn.recurring_select.texts["cancel"]}'>&times;</button>
           <h3 id='myModalLabel'>#{$.fn.recurring_select.texts["repeat"]}</h3>
@@ -477,6 +479,8 @@ window.RecurringSelectDialog =
         <div class='modal-footer'>
           <button class='btn btn-primary rs_save'>#{$.fn.recurring_select.texts["ok"]}</button>
           <button class='btn rs_cancel' data-dismiss='modal' aria-hidden='true'>#{$.fn.recurring_select.texts["cancel"]}</button>
+        </div>
+        </div>
         </div>
       </div>
       "
