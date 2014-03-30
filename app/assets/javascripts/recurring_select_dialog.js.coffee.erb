@@ -46,7 +46,7 @@ window.RecurringSelectDialog =
 
     mainEventInit: ->
       # Tap hooks are for jQueryMobile
-      $('#myModal').on('hide', @cancel)
+      $('#myModal').on('hide.bs.modal', @cancel)
       @save_button = @outer_holder.find('button.rs_save').on "click tap", @save
 
     freqInit: ->
@@ -166,7 +166,6 @@ window.RecurringSelectDialog =
 
     summaryFetch: ->
       return if !(@current_rule.hash? && (rule_type = @current_rule.hash.rule_type)?)
-      @content.css {"width": @content.width()+"px"}
       $.ajax
         url: "/recurring_select/translate",
         type: "POST",
@@ -384,7 +383,7 @@ window.RecurringSelectDialog =
 
     template: () ->
       str = "
-      <div id='myModal' class='modal fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+      <div id='myModal' class='modal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
         <div class='modal-dialog' style='width: 300px;'>
         <div class='modal-content'>
         <div class='modal-header'>
@@ -436,7 +435,7 @@ window.RecurringSelectDialog =
                 <input type='radio' class='monthly_rule_type_day' name='monthly_rule_type' value='true' />
                 #{$.fn.recurring_select.texts["day_of_month"]}
               </label>
-              <label class='radio inline'>
+              <label class='radio-inline'>
                 <input type='radio' class='monthly_rule_type_week' name='monthly_rule_type' value='true' />
                 #{$.fn.recurring_select.texts["day_of_week"]}
               </label>
@@ -466,7 +465,7 @@ window.RecurringSelectDialog =
               <input type='radio' id='ends_until' name='end_interval_type' aria-label='Ends on a specified date' title='Ends on a specified date'>
               On
               <div class='input-group datetime-picker'>
-                <input data-format='MM/dd/yyyy' id='ends_until_input' type='text' style='width: 100px;' size='10' disabled title='Specified date' autocomplete='off'>
+                <input class='form-control' data-format='MM/dd/yyyy' id='ends_until_input' type='text' size='10' disabled title='Specified date' autocomplete='off'>
                 <span class='input-group-addon'>
                   <i class='fa fa-calendar' data-date-icon='fa-calendar' data-time-icon='fa-time'/>
                 </span>
